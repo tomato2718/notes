@@ -1,0 +1,30 @@
+version: 1
+
+formatters:
+  standard:  
+    class: logging.Formatter  
+    format: '[%(levelname)-5s %(asctime)s] : %(message)s'  
+    datefmt: '%Y-%m-%d %H:%M:%S'
+
+handlers:
+  console:  
+    class: logging.StreamHandler  
+    formatter: standard  
+    level: INFO  
+    stream: ext://sys.stdout
+  file:
+    class: logging.handlers.RotatingFileHandler
+    formatter: standard
+    level: INFO  
+    filename: output.log  
+    mode: a  
+    encoding: utf-8  
+    maxBytes: 500000
+    backupCount: 4
+
+loggers:
+  main:  
+    level: INFO  
+    handlers:
+      - console
+      - file

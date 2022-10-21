@@ -1,0 +1,50 @@
+# version 目前固定為 1，未來可能釋出新版本
+version: 1
+
+# formatter 處理輸出格式
+formatters:
+  # 自訂名稱
+  standard:
+    # class 固定為 logging.Formatter
+    class: logging.Formatter
+    # format 為輸出格式
+    format: '[%(levelname)-5s %(asctime)s] : %(message)s'
+    # datefmt 為時間格式
+    datefmt: '%Y-%m-%d %H:%M:%S'
+
+# handler 創建告警設定模組
+handlers:
+  # 自訂名稱
+  console:
+    # class 為輸出方式
+    class: logging.StreamHandler
+    # formatter 為上方定義的 formatter
+    formatter: standard
+    # 告警觸發層級
+    level: INFO
+    # 預設為 stderr
+    stream: ext://sys.stdout
+  file:
+    class: logging.handlers.RotatingFileHandler
+    formatter: standard
+    level: INFO
+    # 輸出檔案名稱
+    filename: output_test.log
+    # 輸出模式: [w]rite, [a]ppend
+    mode: a
+    # 編碼
+    encoding: utf-8
+    # rotating 設定
+    maxBytes: 500000
+    backupCount: 4
+
+# 創建 logger
+loggers:
+  # 自訂名稱
+  main:
+    # 最低觸發層級，與 handler 取層級較高者作為門檻
+    level: INFO
+    # 該 logger 採用之 handler
+    handlers:
+      - console
+      - file
