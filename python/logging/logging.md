@@ -76,8 +76,9 @@ so it’s worth considering transitioning to this newer API when it’s convenie
         - formatters
         - handlers
         - loggers
-    - format 參數可以參考[此處][4]
-    - class 的類型可以參考[此處][5]
+    - format 可以參考[此處][4]
+    - class 可以參考[此處][5]
+    - datefmt 可以參考[此處][6] 
 ```yml
 # version 目前固定為 1，未來可能釋出新版本
 version: 1
@@ -190,4 +191,5 @@ main_logger = logging.getLogger(__name__)
 [3]: https://docs.python.org/3.10/library/logging.config.html#configuration-file-format
 [4]: https://docs.python.org/3/library/logging.html#logrecord-attributes
 [5]: https://docs.python.org/3/library/logging.handlers.html#logging.FileHandler
+[6]: https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes
 [n]: https://docs.python.org/3/library/logging.html
