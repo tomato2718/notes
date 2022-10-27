@@ -27,8 +27,8 @@ def foo():
 
 ```py
 with pysnooper.snoop():
-    print(foo)
-    bar='bar'
+    print('foo')
+    bar = 'bar'
 ```
 
 - snoop() 常用功能
