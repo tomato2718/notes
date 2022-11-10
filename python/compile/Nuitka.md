@@ -100,6 +100,10 @@ python -m nuitka <main.py>
 
 # 結束後移除打包過程中產生的檔案
 --remove-output 
+
+# 指定執行時之 python 參數
+# e.g. python -o main.py, python -m nuitka.py
+--python-flag=<flag>
 ```
 
 - import 相關
@@ -161,12 +165,12 @@ python -m nuitka <main.py>
 
 - 打包 main 與 lib，不打包第三方套件
 ```sh
-python -m nuitka --remove-output --follow-import-to lib -o myproject.bin main.py
+python -m nuitka --python-flag=o --remove-output --follow-import-to lib -o myproject.bin main.py
 ```
 
 - 打包所有 import
 ```sh
-python -m nuitka --remove-output --follow-imports -o myproject.bin main.py
+python -m nuitka --python-flag=o --remove-output --follow-imports -o myproject.bin main.py
 ```
 
 #### 更多指令
