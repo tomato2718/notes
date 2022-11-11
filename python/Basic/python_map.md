@@ -3,7 +3,7 @@
 ### set
 - 簡介
     - 基本資料型態
-- 特色
+- 特性
     - 無序
     - 不重複
     - iterable
@@ -37,7 +37,7 @@ foo.clear()
 ### frozenset
 - 簡介
     - 同 `set`，但創建後不可再修改
-- 特色
+- 特性
     - 無序
     - 不重複
     - iterable
@@ -47,7 +47,7 @@ foo.clear()
 ### dict
 - 簡介
     - 基本資料型態
-- 特色
+- 特性
     - key-value 對
     - key 不重複
     - iterable
@@ -86,7 +86,7 @@ foo.items()
     - 同 `dict`，但給予每個 key 預設值
     - 對空值的處理效率比 dict.get() 好
     - 因此有空值時會建議使用 defaultdict 而非 dict
-- 特色
+- 特性
     - key-value 對
     - key 不重複
     - iterable
@@ -115,7 +115,7 @@ foo['tomato']
 ### Counter
 - 簡介
     - 由 iterable 物件創建計數 dict
-- 特色
+- 特性
     - key-value 對
     - key 不重複
     - iterable
