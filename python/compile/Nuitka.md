@@ -108,6 +108,7 @@ python -m nuitka <main.py>
 
 - import 相關
     - 必填
+    - **注意**：不打包的項目要分開放置
 ```sh
 # 打包 python 標準庫
 # 非必要不建議
@@ -122,11 +123,11 @@ python -m nuitka <main.py>
 # 打包指定 import
 # 未用此指令打包之項目，必須存在專案資料夾或 python library 內
 # 可以重複呼叫
---follow-import-to <target>
+--follow-import-to=<target>
 
 # 不打包指定 import
 # 可以先 --follow-imports 全選，再用此指令移除指定目標
---no-follow-import-to <target>
+--no-follow-import-to=<target>
 ```
 
 - 打包為單一檔案
@@ -165,7 +166,7 @@ python -m nuitka <main.py>
 
 - 打包 main 與 lib，不打包第三方套件
 ```sh
-python -m nuitka --python-flag=o --remove-output --follow-import-to lib -o myproject.bin main.py
+python -m nuitka --python-flag=o --remove-output --follow-import-to=lib -o myproject.bin main.py
 ```
 
 - 打包所有 import
