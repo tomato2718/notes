@@ -14,7 +14,7 @@ bar = set()
 
 # 創建 set
 # 注意： foo = {} 會創建 dict 非 set
-foo = {1,2,3,4,5}
+foo = {1, 2, 3, 4, 5}
 
 # 加入元素
 foo.add()
@@ -43,6 +43,11 @@ foo.clear()
     - iterable
 - 文件
     - [點我][set]
+
+```py
+# 創建 frozenset
+foo = forzenset(['a', 'b', 'c'])
+```
 
 ### dict
 - 簡介
