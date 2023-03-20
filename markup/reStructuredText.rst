@@ -258,31 +258,225 @@ __ Python_
 ``..`` 除了設定連結目標以外，還可以進行各種特定標記，如：
 
 - 註解
-- 變數
 - 注意事項
 
 注意：
 ------
-``..`` 提供的特殊函數並非全部是 rst 原生功能，大部分為特定套件解釋時使用
+- ``..`` 提供的特殊函數並非全部是 rst 原生功能，大部分為特定套件解釋時使用
 
 範例：
 ------
-以下待更新
+
+.. code-block:: rst
+
+    ..
+  
+    This is a comment.
+
+    .. note:: 
+      
+        This is a note.
+
+    .. attention::
+
+        Thx for ur attention! 
+
+..
+
+    This is a comment.
+
+.. note::
+
+    This is a note.
+
+.. attention::
+
+    Thx for ur attention!
 
 -------------------
 
-標題
+替代文字
 ========
 說明：
 ------
+使用 ``||`` 可以引用替代文字
+
 注意：
 ------
+- 定義替代文字處，需同時指定替代類型，較常見的替代類型有：
+  
+  - ``replace``: 替代為文字
+  - ``image``: 替代為圖片
+
+範例：
+------
+.. code-block:: rst
+
+    |logo|
+    
+    Hello, |something|!
+
+    .. |something| replace:: world
+
+|logo|
+
+Hello, |something|!
+
+.. |something| replace:: world
+
+-------------------
+
+圖片
+========
+說明：
+接續替代文字，在嵌入圖片時有以下設定：
+
+- ``:height:`` 圖片高度，單位見下方
+- ``:weight:`` 圖片寬度，單位為
+
+  - ``em``, ``ex``, ``px``, ``in``, ``cm``, ``mm``, ``pt``, ``pc``
+
+- ``:alt:`` 圖片無法顯示時的替代文字
+- 更多設定參考 html ``<image>``
+
+範例：
+------
+.. code-block:: rst
+
+    .. |logo| image:: https://www.python.org/static/img/python-logo.png
+
+.. |logo| image:: https://www.python.org/static/img/python-logo.png
+
+-------------------
+
+程式碼區塊
+==========
+說明：
+------
+``.. code-block:: <language>`` 可以建立程式碼區塊
+
+注意：
+------
+- 程式碼內容需要上下空 1 列，且縮排 4 字元 
+
+範例：
+------
+.. code-block:: rst
+
+    .. code-block:: py
+
+        >>> print('Hello, world!')
+        Hello, world!
+
+.. code-block:: py
+
+    >>> print('Hello, world!')
+    Hello, world!
+
+-------------------
+
+純區塊
+========
+說明：
+------
+``::`` 可以建立文字區塊
+
+注意：
+------
+- 區塊內容需要上下空 1 列，且縮排 4 字元 
+
+範例：
+------
+.. code-block:: rst
+
+    ::
+
+        foo
+
+::
+
+    foo
+
+-------------------
+
+文字區塊
+========
+說明：
+------
+於句首使用 ``|`` 可以建立文字區塊，文字區塊會跳脫原有分行格式，以輸入的樣式為主
+
+範例：
+------
+
+.. code-block:: rst
+
+    | 這是文字區塊，
+    | 文字需快會跳脫原有的分行格式，
+    | 依照輸入的樣式為主。
+
+| 這是文字區塊，
+| 文字需快會跳脫原有的分行格式，
+| 依照輸入的樣式為主。
+
+-------------------
+
+標籤
+========
+說明：
+------
+以 ``::`` 包覆文字，可以將其建立為標籤
+
+範例：
+------
+.. code-block:: rst
+
+    :Author: yves.chen@axv.bz
+
+:Author: yves.chen@axv.bz
+
+-------------------
+
+分隔線
+========
+說明：
+------
+四個以上連續的 ``-`` 可以建立分隔線
+
 範例：
 ------
 .. code-block:: rst
 
     foo
 
+    ----
+
+    bar
+
+foo
+
+----
+
+bar
+
+-------------------
+
+定義
+========
+說明：
+------
+接續前一行，並以 4 個字元縮排可以建立為定義說明
+
+範例：
+------
+.. code-block:: rst
+
+    說明：
+        這是一段說明。
+
+說明：
+    這是一段說明。
+
 -------------------
 
 .. [ref] https://docutils.sourceforge.io/docs/user/rst/quickref.html
+
