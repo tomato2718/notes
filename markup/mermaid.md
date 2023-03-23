@@ -84,9 +84,9 @@ graph LR;
 - 指標種類：以指定符號代替 `>`
 ```
 graph LR;
-    a <--* b
-    b o===x c
-    c -...- d
+    a <--> b
+    b x==x c
+    c -.-o d
 ``` 
 ```mermaid
 graph LR;
