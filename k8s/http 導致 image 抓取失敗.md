@@ -1,4 +1,4 @@
-# 在 containerd 使用 http 連線
+# http 導致 image 抓取失敗
 ## 環境資訊
 - `kubernets v1.27.0`
 - `docker 23.0.3`
@@ -7,7 +7,7 @@
 ## 問題描述
 ### 錯誤資訊
 - 已使用 docker 在 `control plane` 建立 private registry
-- k8s 的 worker node 向該 registry 抓取 image 時顯示`ImagePullBackOff` ，如下
+- k8s 的 worker node 向該 registry 抓取 image 時顯示 `ImagePullBackOff` ，如下
 ```sh
 >>> kubectl get po
 NAME                              READY   STATUS             RESTARTS        AGE
@@ -84,7 +84,7 @@ config.toml
     [plugins."io.containerd.grpc.v1.cri".registry.configs]
       [plugins."io.containerd.grpc.v1.cri".registry.configs."<registry address>: <port>".tls]
         insecure_skip_verify = true
-    ### 區塊結尾 ###
+  ### 區塊結尾 ###
 
   [plugins."io.containerd.gc.v1.scheduler"]
     deletion_threshold = 0
