@@ -4,7 +4,7 @@ otlp 是遙測資料編碼與交換的協定，在 otlp 之下有 `otlp/http` �
 
 ## otlp/http
 ### 訊息架構
-`otlp/http` 與 `otlp/grpc` 皆採用 `protocol buffer` (`protobuf`) 作為遙測資料的架構，該架構的詳細可以參考 [protobuf 官方文件][protobuf]。
+`otlp/http` 與 `otlp/grpc` 皆採用 `protocol buffer` (`protobuf`) 做為遙測資料的架構，該架構的詳細可以參考 [protobuf 官方文件][protobuf]。
 
 ### 處理方式
 `otlp/http` 提供兩種編碼方式，分別為 `binary` (`protobuf`) 與 `json`，多數 exporter 的預設皆使用 `binary` 編碼。
@@ -14,7 +14,7 @@ otlp 是遙測資料編碼與交換的協定，在 otlp 之下有 `otlp/http` �
 
 ## otlp/grpc
 ### 訊息架構
-`otlp/http` 與 `otlp/grpc` 皆採用 `protocol buffer` 作為遙測資料的架構，該架構的詳細可以參考 [protobuf 官方文件][protobuf]。
+`otlp/http` 與 `otlp/grpc` 皆採用 `protocol buffer` 做為遙測資料的架構，該架構的詳細可以參考 [protobuf 官方文件][protobuf]。
 
 ### 處理方式
 `otlp/grpc` 使用 `gRPC` 框架進行編碼與發送，細節可以參考 [gRPC 文件]。

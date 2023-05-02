@@ -60,13 +60,13 @@ graph LR;
 ```
 - 檢查是否部署成功
 ```sh
-kubectl get all
+>>> kubectl get all
 ```
 
 ### 設定
 雖然部署成功了，但目前的 `collector` 還沒被設定，因此是沒有任何功能的。
 
-設定檔撰寫方式，請參考 [文章待更新]
+設定檔可以透過修改 `yaml` 中 `ConfigMap`.`otel-collector-conf` 來套用，撰寫方式請參考 [文章待更新]
 
 ## 補充
 初次安裝測試時，可以將 `otel-agent` 的 `ConfigMap` 與 `DaemonSet` 移除，直接將資料寄送至 collector 以簡化測試流程。
