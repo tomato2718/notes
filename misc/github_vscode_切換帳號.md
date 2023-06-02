@@ -1,107 +1,93 @@
-## MacOS 上 V.S. Code 切換 github 帳號方法
+# MacOS 上 V.S. Code 切換 github 帳號方法
 
-###事前準備
-
-#### 1. 產生 ssh key
-
-產生 ssh key A
-
-```
-ssh-keygen -t rsa -C "yves.chen@axv.bz"
+## 事前準備
+### 產生 ssh key
+- 產生 ssh key A
+```sh
+>>> ssh-keygen -t rsa -C "tomato@example.com"
 ```
 
-設定存放路徑與名稱
-
-```
+- 設定存放路徑與名稱
+```sh
 Enter file in which to save the key (/Users/yves/.ssh/id_rsa):
->> .ssh/id_rsa_github_axv
+>> .ssh/id_rsa_github_tomato
 ```
 
-產生 ssh key B
-
-```
-ssh-keygen -t rsa -C "personal@email.adress"
-```
-
-設定存放路徑與名稱
-
-```
-Enter file in which to save the key (/Users/yves/.ssh/id_rsa):
->> .ssh/id_rsa_github_personal
+- 產生 ssh key B
+```sh
+>>> ssh-keygen -t rsa -C "potato@example.com"
 ```
 
-#### 2. 將公鑰新增至 github 上
-
-查看公鑰
-
-```
-cat .ssh/id_rsa_github_axv.pub
+- 設定存放路徑與名稱
+```sh
+Enter file in which to save the key (/Users/tomato/.ssh/id_rsa):
+>> .ssh/id_rsa_github_potato
 ```
 
-新增至 [github](https://github.com/settings/ssh/new)
+### 將公鑰新增至 github 上
 
+- 查看公鑰
+```sh
+>>> cat .ssh/id_rsa_github_tomato.pub
+```
 
-#### 3. 設定 .ssh/config
+- 新增至 [github](https://github.com/settings/ssh/new)
+
+### 設定 .ssh/config
 
 開啟設定檔
 
-```
-vim .ssh/config
+- 開啟設定
+```sh
+>>> vim .ssh/config
 ```
 
-參考設定
-
-```
+- 參考設定
+```plaintext
 ## github
 # personal
-Host github_personal
+Host github_potato
   HostName github.com
   User myname
-  IdentityFile ~/.ssh/id_rsa_github_personal
+  IdentityFile ~/.ssh/id_rsa_github_potato
 
 # axv
-Host github_axv
+Host github_tomato
   HostName github.com
   User yves
-  IdentityFile ~/.ssh/id_rsa_github_axv
+  IdentityFile ~/.ssh/id_rsa_github_tomato
 ```
 
-#### 4. 測試是否成功
-
-於 terminal 測試是否成功
-
-```
-ssh -T git@github_axv
->> Hi yveschen27182! You've successfully authenticated, but GitHub does not provide shell access.
+### 測試是否成功
+- 於 terminal 測試是否成功
+```sh
+>>> ssh -T git@github_tomato
+>> Hi tomato! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
-### 專案部分
+## 專案部分
 
-#### 1. initialize repo
-
-
-
-#### 2. 取得 repo url
-
-至 github repo 複製 ssh url
-
-
-#### 3. 專案 git 設定
-
-設定使用者與信箱
-
-```
-git config user.name "your name"
-git config user.email "your email"
+### initialize repo
+```sh
+>>> git init
 ```
 
+### 取得 repo url
+- 至 github repo 複製 ssh url
 
-連接 repo
 
-- git@<先前設定的 host>:\<repo 位置>
+### 專案 git 設定
+- 設定使用者與信箱
 
+```sh
+> git config user.name "your name"
+> git config user.email "your email"
 ```
-git remote add origin git@github_axv:yveschen27182/example.git
-```
 
-完成後即可綁定專案與 repo
+- 連接 repo
+  - `git@<先前設定的 host>:\<repo 位置>`
+
+```sh
+>>> git remote add origin git@github_tomato:tomato/example.git
+```
+- 完成後即可綁定專案與 repo
