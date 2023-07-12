@@ -1,12 +1,12 @@
-## PySnooper 簡易操作說明
-### 概要
-PySnooper 是提供 pyhton 開發過程 debug 的第三方工具，可以深入追蹤程式碼的執行狀況降低 dubug 難度，此篇文章介紹 PySnooper 的基本使用方法
+# PySnooper 簡易操作說明
+## 概要
+PySnooper 是提供 pyhton 開發過程 debug 的第三方工具，可以深入追蹤程式碼的執行狀況降低 dubug 難度，此篇文章介紹 PySnooper 的基本使用方法。
 
-### 操作
+## 操作
 - 安裝 PySnooper
 
 ```sh
-pip install pysnooper
+>>> pip install pysnooper
 ```
 
 - 直接 import 
@@ -39,8 +39,7 @@ with pysnooper.snoop():
 
 - 更多功能請參考官方文件
 
-### 參考
-- 官方說明文件
-    - [官方文件][1]
+## 參考
+- [官方文件][1]
 
 [1]: https://github.com/cool-RR/PySnooper

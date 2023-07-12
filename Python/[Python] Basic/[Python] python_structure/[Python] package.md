@@ -1,10 +1,11 @@
-### package
+# Python Basic: Package
+## Package
 在 python 中，package 直接由資料夾建立，資料夾內多個 module 可以組合成 package
 
-- 架構
-    - 一個 Python Package 會長得像這樣
+### 架構
+一個 Python Package 會長得像這樣
 
-```shell
+```sh
 MyPackage
 ├── __init__.py
 ├── __main__.py
@@ -12,70 +13,73 @@ MyPackage
 └── _moduleB.py
 ```
 
-- `__init__.py`
-    - 組成 package 的關鍵
-    - 任何資料夾中帶有 `__init__.py` 都會被視為 python package
-    - 在資料夾被 **import** 時，會執行此檔案
-        - 也可以為空
-    - 透過設計此檔案，可以避免外部使用者 import 不相關模組
+### `__init__.py`
+`__init__.py` 是組成 package 的關鍵，任何帶有 `__init__.py` 的資料夾都會被視為 python package。
+
+- 在資料夾做為 package 被 **import** 時，會執行此檔案
+    - 若沒有要執行的內容也可以為空。
+- 透過設計此檔案，可以避免外部使用者 import 不相關模組
 
 ```py
-## MyPackage/__init__.py
-__all__ = ['foo', 'bar']
+'''
+MyPackage/__init__.py
+'''
+__all__ = [
+    'foo',
+    'bar',
+]
 
 import _moduleA
 from _moduleB import bar
 
 # 將 _moduleA 的 foo function 指派為此 package 的 foo
 # 注意不帶括號 _moduleA.foo 才是指派物件本身
-# _moduleA.foo() 會執行該物件
+# _moduleA.foo() 會呼叫該物件
 foo = _moduleA.foo
 ```
 
 ```py
-## 外部程式
+'''
+外部程式
+'''
 
-# 可以直接 import MyPackage 資料夾
-# 實際 import 的內容會是 MyPackage/__init__.py
-from MyPackage import foo, bar
+# 可以直接導入 MyPackage 資料夾
+# 實際導入的內容會是 MyPackage/__init__.py
+from MyPackage import (
+    foo,
+    bar,
+)
 
 foo()
+bar()
 ```
 
-- `__main__.py`
-    - 在資料夾被**執行**時，會執行此檔案
+### `__main__.py`
+在資料夾被做為模組 **執行** 時，會執行此檔案。
 
-
+> **此處的模組是消歧義，實際上是指 Package。**
 ```py
-## MyPackage/__main__.py
+'''
+MyPackage/__main__.py
+'''
 
 print('hello, world!')
 ```
 
-```shell
-python3 MyPackage
->> hello, world!
+- 使用 `python -m` 來執行模組。
+
+```sh
+>>> python -m MyPackage
+hello, world!
 ```
 
-- modules
-    - python 並沒有指定模組命名方式
-    - 習慣上會以底線 `_` 做區隔
-        - **沒有**實際作用
-    - 帶前置底線的模組通常代表內部使用
-    - 直接命名則是供外部使用
+### Module
+python 並沒有規定模組命名方式，但有建議遵守幾條規則。
 
-### 總結
-- 為了降低開發與維護的負擔，coding 時建議盡可能把功能拆開
-    - 一個 function 只做一件事
-        - 加法 (code)
-    - 一個 class 只做一類事
-        - 加 (method)
-        - 減 (method)
-        - 乘 (method)
-        - 除 (method)
-    - 一個 module 只負責一個功能
-        - 微分 (class)
-        - 積分 (class)
-    - 一個 package 只做一個領域的事
-        - 微積分 (module)
-        - 線性代數 (module)
+- 命名一率使用全小寫單詞。
+- 盡量避免以兩個以上單詞命名。
+    - 不得已時使用底線分隔：`my_module.py`。
+- 前置底線的模組通常代表模組內部使用，不提供外部導入。
+    - `_utils.py`。
+    - **無法實際防止模組被導入**。
+    - 出於對開發者的尊重，建議遵守此規則。

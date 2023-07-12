@@ -1,24 +1,24 @@
-## python logging 簡易操作說明
-### 概要
-logging 是 python 標準庫中提供的日誌套件
-此篇文章介紹 logging 的基本使用方法
+# python logging 簡易操作說明
+## 概要
+logging 是 python 標準庫中提供的日誌套件。
+此篇文章介紹 logging 的基本使用方法。
 
-### 操作
-#### 基本
+## 操作
+### 基本
 
-1. import logging
+- 導入模組。
 
 ```py
 import logging
 ```
 
-2. 產生日誌
-    - 日誌預設有以下等級
-        - debug
-        - info
-        - warning
-        - error
-        - critical
+- 產生日誌。
+  - 日誌預設有以下等級：
+    - debug
+    - info
+    - warning
+    - error
+    - critical
 
 ```py
 # 使用 logging.<level> 即可產生日誌
@@ -27,10 +27,10 @@ logging.info('hello!')
 logging.error('error')
 ```
 
-#### 日誌設定
-1. 創建 logger
-    - 根據[官方文件][1]說明，**永遠不要直接實體化 logging**
-    - 因此需要先創建 logger 再對 logger 進行設定
+## 日誌設定
+### 創建 logger
+- 根據 [官方文件][1] 說明，**永遠不要直接實體化 logging。**
+- 因此需要先創建 logger， 再對 logger 進行設定。
 
 ```py
 # 取得名為 myLogger 的 logger
@@ -41,44 +41,52 @@ my_logger = logging.getLogger('myLogger')
 my_logger.info('foo')
 ```
 
-2. 設定 logger
-    - setLavel, setFormatter 等可以對 logger 進行個別設定
-    - basicConfig 可以一次對 logger 所有項目設定
-    - 可設定項目請見[官方文件][2]
+### 設定 logger
+- `setLavel`, `setFormatter` 等可以對 logger 進行個別設定。
+- `basicConfig` 可以一次對 logger 所有項目設定。
+- 可設定項目請見 [官方文件][2]。
 
 ```py
-my_logger.basicConfig(filename = 'example.log',
-                    filemode = "w",
-                    format = "[%(levelname)-5s %(asctime)s] : %(message)s",
-                    datefmt = "%Y-%m-%d %H:%M:%S",
-                    encoding = 'utf-8',
-                    level = logging.INFO)
+my_logger.basicConfig(
+    filename = 'example.log',
+    filemode = "w",
+    format = "[%(levelname)-5s %(asctime)s] : %(message)s",
+    datefmt = "%Y-%m-%d %H:%M:%S",
+    encoding = 'utf-8',
+    level = logging.INFO,
+)
 ```
 
-3. fileConfig
-    - 可以使用外部設定檔進行 logger 設定
-    - 根據[官方文件][3]說明，fileConfig() 為舊接口，因此建議改用 dictConfig()
+#### fileConfig
+
+- `fileConfig` 可以使用外部設定檔進行 logger 設定。
+- 根據[官方文件][3]說明，`fileConfig()` 為舊接口，因此建議改用 `dictConfig()`。
+
 > The fileConfig() API is older than the dictConfig() API and does not provide functionality to cover certain aspects of logging.
-... 
-so it’s worth considering transitioning to this newer API when it’s convenient to do so.
+
+> ...
+
+> so it’s worth considering transitioning to this newer API when it’s convenient to do so.
  
-4. dictConfig
-    - 請見下一章節
+#### dictConfig
+請見下一章節。
 
-#### 設定文件
+### 設定文件
 
-1. dictConfig
-    - 使用 dictConfig 可以由 dict 讀取設定
-    - 但由於設定較複雜，因此建議寫成 YAML (或其他格式) 後再讀入
-2. Yaml 範本
-    - 設定檔有四個基本要素 (必填)
-        - version
-        - formatters
-        - handlers
-        - loggers
-    - format 可以參考[此處][4]
-    - class 可以參考[此處][5]
-    - datefmt 可以參考[此處][6] 
+#### dictConfig
+- 使用 `dictConfig()` 可以由 `dict` 讀取設定。
+- 但由於設定較複雜，因此建議寫成 YAML (或其他格式) 後再讀入。
+
+#### Yaml 範本
+- 設定檔有四個基本要素 (必填)。
+    - version
+    - formatters
+    - handlers
+    - loggers
+- format 可以參考 [此處][4]。
+- class 可以參考 [此處][5]。
+- datefmt 可以參考 [此處][6]。
+
 ```yml
 # version 目前固定為 1，未來可能釋出新版本
 version: 1
@@ -142,16 +150,15 @@ loggers:
     level: DEBUG
     handlers:
       - myHandler
-
 ```
 
-3. 讀取設定
-    - 安裝 PyYaml 套件
-    - 讀取 .yml
+#### 讀取設定
+- 安裝 PyYaml 套件
 ```sh
-# shell
-pip install PyYaml
+>>> pip install PyYaml
 ```
+
+- 讀取 .yml
 
 ```py
 import yaml
@@ -165,9 +172,10 @@ with open (<your yaml>, 'r') as file:
     logging.config.dictConfig(config)
 ```
 
-4. 選取 logger
-    - 僅需於 `main.py` 進行設定
-    - 其他 module 直接 getLogger 即可
+#### 選取 logger
+- 僅需於入口進行設定。
+- 其他模組直接使用 `getLogger()` 取得即可。
+
 ```py
 # 取得名為 main 的 logger
 logger = logging.getLogger('main')
@@ -182,9 +190,8 @@ main_logger = logging.getLogger(__name__)
 
 
 
-### 參考
-- 官方說明文件
-    - [官方文件][n]
+## 參考
+- [官方文件][n]
 
 [1]: https://docs.python.org/3/library/logging.html#logger-objects
 [2]: https://docs.python.org/3/library/logging.html#logging.basicConfig
