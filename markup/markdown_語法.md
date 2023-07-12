@@ -1,234 +1,190 @@
-#Markdown 筆記
----
-### 1. Heading (標題)
-##### 說明:
-於行首插入1~6個 # 號可設定1至6級標題，可選擇性於行末插入 # 作為關閉符號 (不影響結構)
-##### sample:
-### h3
-#### h4 ####
-##### h5 #
-##### code:
-	### h3
-	#### h4 ####
-	##### h5 #
-	
-### 2. Horizontal Rule (水平分隔線)
-##### 說明:
-使用3個以上連續的 - 可新增水平分隔線，行中不可有任何其餘字符
-##### sample:
-title
----
-text
-##### code:
-	title
-	---
-	text
+# Markdown 語法介紹
+## 概要
+### 什麼是 Markdown?
+Markdown 是一種輕量級標記式語言，有著以下幾個特點。
 
-### 3. Bold and Italic character (粗體與斜體)
-##### 說明:
-使用 1 至 3 個連續的 * 或 _ 符號可以分別設定斜體、粗體、粗斜體
-##### sample:
-*斜體*
+- 易讀易寫
+- 支援圖片、圖表、數學式、程式碼
 
-**粗體**
+### 為什麼使用 Markdown?
 
-***粗斜體***
+- Markdown 可以快速產出乾淨簡潔的文件
+- Markdown 能方便轉換多種格式 (`.docx`, `.pdf`, html, etc.)
 
-_斜體_
 
-__粗體__
+## 說明
+### 標題
+於行首插入 1~5 個 `#` 號可設定 1 至 5 級標題。
 
-##### code:
-	*斜體*
+> 可選擇性於行末插入 `#` 作為關閉符號 (無實際作用)。
 
-	**粗體**
-
-	***粗斜體***
-
-	_斜體_
-
-	__粗體__
-
-### 4. Code (程式碼)
-##### 說明:
-使用反引號 \` 包住文字可新增行內程式碼，若程式碼中包含 ` 可於頭尾使用多個反引號包裹
-##### sample:
-`print("Hello, World!")`
-
-``print("backtick ` ")``
-##### code:
-	`print("Hello, World!")`
-
-	``print("backtick ` ")``
-
-### 5. Code block (程式碼區塊)
-##### 說明:
-於行首新增縮排或半形空格可新增程式碼區塊
-使用三連續反引號 ` 於上下行包住文字也可新增程式碼區塊
-##### sample:
-	foo="Hello, World!"	
-	print(foo)
-
+```md
+# 文件主題
+## 大區塊
+### 大標題 ###
+#### 小標題 ####
 ```
-foo="Hello, World!"	
+	
+### 水平分隔線
+使用3個以上連續的 `-` 可新增水平分隔線，行中不可有任何其餘字符。
+
+```md
+text1
+
+---
+
+text2
+```
+
+### 粗體與斜體
+使用 1 至 3 個連續的 `*` 或 `_` 符號可以分別設定斜體、粗體、粗斜體。
+
+```md
+*斜體*
+_斜體_
+**粗體**
+__粗體__
+***粗斜體***
+___粗斜體___
+```
+
+### 程式碼
+使用反引號 `` ` `` 包住文字可新增行內程式碼，若程式碼中包含 `` ` `` 可於頭尾使用多個反引號包裹。
+```md
+`print("Hello, World!")`
+``print("backtick ` ")``
+```
+
+### 程式碼區塊
+使用三連續反引號 `` ` `` 於上下行包住文字可以新增程式碼區塊。
+
+於上方反引號加入語言名稱可以對內容進行格式設定。
+
+````md
+```py
+foo = "Hello, World!"	
 print(foo)
 ```
 
-##### code:
-		foo="Hello, World!"	
-		print(foo)
-		
-	```
-	foo="Hello, World!"	
-	print(foo)
-	```
+```java
+String bar = "Hello, World!";
+System.out.println(bar);
+```
+````
 
-### 6. Icon bullets (項目符號)
-##### 說明:
-使用 +, -, * 搭配縮排 (tab) 或半形空格可新增項目符號
-##### sample:
-+	123
--	456
-*	789
+### 項目符號
+使用 `+`, `-`, `*` 搭配半形空格可新增項目符號。
 
-##### code:
-	+	123
-	-	456
-	*	789
+```md
+- 123
+- 456
+- 789
+```
 
-### 7. Number bullets (編號)
-##### 說明:
-使用半形數字搭配縮排 (tab) 或半形空格可新增編號
-##### sample:
-1.	abc
-2.	def
-3.	ghi
+### 編號
+使用半形數字 + `.` 搭配半形空格可新增編號。
 
-##### code:
-	1.	abc
-	2.	def
-	3.	ghi
+```md
+1. abc
+2. def
+3. ghi
+```
 
-### 8. Multilevel list (多層次清單)
-##### 說明:
-於編號或項目符號中新增縮排可定義多層次清單
-##### sample:
-1.	123
-	1.	abc
-	2.	def
-2.	456
-	1.	abc
-		*	xyz
-	2.	def
+### 多層次清單
+於編號或項目符號中新增縮排 (tab) 可定義多層次清單。
 
-##### code:
-	1.	123
-		1.	abc
-		2.	def
-	2.	456
-		1.	abc
-			*	xyz
-		2.	def
+```md
+1. 123
+	1. abc
+	2. def
+2. 456
+	- abc
+	- def
+```
 
-### 9. Hyperlink (超連結)
-##### 說明:
-使用
+### 超連結
+有很多種方法可以建立超連結，請直接參考下方範例。
 
-	角括號 <>
-	[文字](連結 "說明文字")
-	[文字][ID] 
-	[ID]: 連結 "說明文字"
-新增超連結，\[ID] 可放置於文件任何地方
-##### sample:
+```md
 <https://www.google.com/>
 
-[Google](https://www.google.com/ "點我前往Google")
+[Google](https://www.google.com/)
 
-[Google][1]
+[Google 網站][google]
 
-[1]: https://www.google.com/ "點我前往Google"
-##### code:
-	<https://www.google.com/>
-	
-	[Google](https://www.google.com/ "點我前往Google")
+[bing]
 
-	[Google][1]
+[google]: https://www.google.com/
+[bing]: https://www.bing.com/
+```
 
-	[1]: https://www.google.com/ "點我前往Google"
+### 圖片
+圖片的新增方式與超連結相同，只差在圖片需要在中括號 `[]` 前方加上驚嘆號 `!`。
 
-### 10. Image (圖片)
-##### 說明:
-使用
+```md
+![logo](https://markdown.tw/images/208x128.png)
 
-	![替代文字](路徑 "說明文字")
-	![替代文字][ID] 
-	[ID]: 路徑 "說明文字"
-可新增圖片
-##### sample:
-![替代文字](https://markdown.tw/images/208x128.png "Markdown")
+![logo]
 
-![替代文字][2]
-[2]: https://markdown.tw/images/208x128.png "Markdown"
-##### code:
-	![替代文字](https://markdown.tw/images/208x128.png "Markdown")
-	
-	![替代文字][2]
-	[2]: https://markdown.tw/images/208x128.png "Markdown"
+[logo]: https://markdown.tw/images/208x128.png
+```
 
-### 11. Quote (引用)
-##### 說明:
-使用 \> 可新增引用
-##### sample:
-> apple
->> banana
->>> cherry
+### 引用
+使用 `> ` 可新增引用。
+
+```md
+> 這是一段引用文字
 >
->> date
+> 若要在引用中換行，一樣需要加入空行
 >
-> eggplant
-##### code:
-	> apple
-	>> banana
-	>>> cherry
-	>
-	>> date
-	>
-	> eggplant
+> > 第二層引用文字
+> > 
+> > > 第三層引用文字
+> >
+> > 第二層引用文字
+>
+> 第一層引用文字
+```
 
-### 12. Table
-##### 說明:
-使用 |、-、: 可編制表格，須注意並非所有 Markdown 編輯器與使用 Markdown 語法之網站都支援表格功能
-##### sample:
-A|B|C
-:---|:---:|---:
-left|center|right
-#####code:
-	A|B|C
-	:---|:---:|---:
-	left|center|right
-### 13. Escape character (跳脫字元)
-##### 說明:
-於具功能之特定符號前加入反斜線 \ 可取消該符號之功能，如
+### 表格
+使用 `|`, `-`, `:` 可編制表格，須注意並非所有 Markdown 編輯器與使用 Markdown 語法之網站都支援表格功能。
 
-	\	反斜線
-	`	反引號
-	*	星號
-	_	底線
-	{}	大括號
-	[]	方括號
-	<>	角括號
-	()	括號
-	#	井號
-	+	加號
-	-	減號
-	.	英文句點
-	!	驚嘆號
-##### sample:
+```md
+|A   |B     |C    |
+|:---|:---: |---: |
+|left|center|right|
+```
+
+
+### 跳脫字元
+若是使用的文字與 Markdown 保留字元產生衝突，可以使用反斜線 `\` 來取消功能。
+
+特殊字元如：
+
+- `\`: 反斜線。
+- `` ` ``: 反引號。
+- `*`: 星號。
+- `_`: 底線。
+- `{}`: 大括號。
+- `[]`: 方括號。
+- `<>`: 角括號。
+- `()`: 括號。
+- `#`: 井號。
+- `+`: 加號。
+- `-`: 減號。
+- `.`: 英文句點。
+- `!`: 驚嘆號。
+
+```md
 1\*2\*3=6
-##### code:
-	
-	1\*2\*3=6
+```
 
-### 14. HTML tag (HTML 標籤)
-##### 說明:
-在 Markdown 文件 與部分使用 Markdown 語法 之網站，支援 HTML 語法的使用
+### HTML 標籤
+在 Markdown 與部分使用 Markdown 語法之網站，可以直接使用 HTML 標籤。
+
+但需要注意，盡量避免在 markdown 中使用 HTML 標籤，以維持文件翻譯前的可讀性。
+
+## 參考
+- [Markdown 說明文件][Markdown]
+
+[Markdown]: https://markdown.tw/
