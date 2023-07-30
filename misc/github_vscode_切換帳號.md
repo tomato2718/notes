@@ -44,14 +44,14 @@ Enter file in which to save the key (/Users/tomato/.ssh/id_rsa):
 
 - 參考設定
 ```plaintext
-## github
-# personal
+# github
+## personal
 Host github_potato
   HostName github.com
   User myname
   IdentityFile ~/.ssh/id_rsa_github_potato
 
-# axv
+## sub
 Host github_tomato
   HostName github.com
   User yves
@@ -60,6 +60,7 @@ Host github_tomato
 
 ### 測試是否成功
 - 於 terminal 測試是否成功
+  - 注意這邊使用者要使用 `git`
 ```sh
 >>> ssh -T git@github_tomato
 >> Hi tomato! You've successfully authenticated, but GitHub does not provide shell access.
