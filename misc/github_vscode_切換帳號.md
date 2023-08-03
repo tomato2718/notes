@@ -1,4 +1,4 @@
-# MacOS 上 V.S. Code 切換 github 帳號方法
+# MacOS 上 VS Code 切換 github 帳號方法
 
 ## 事前準備
 ### 產生 ssh key
