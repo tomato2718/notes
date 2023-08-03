@@ -445,6 +445,7 @@ checkout 先是收到了來自使用者的呼叫，此時是做為 Server 的角
 最後 email 收到了來自 checkout 的請求，進行處理時又產生了一個 kind 為 2 的 span。
 
 運作方式會像下圖所示：
+
 ![spanKind]
 
 #### 關於 attributes
