@@ -183,9 +183,9 @@ anonymous__
   - ``image``: 替代為圖片
 
 ```rst
-
-
 Hello, |something|!
+
+|logo|
 
 .. |something| replace:: world
 .. |logo| image:: https://www.python.org/static/img/python-logo.png
