@@ -271,7 +271,7 @@ __ Python_
 
     ..
   
-    This is a comment.
+        This is a comment.
 
     .. note:: 
       
@@ -332,7 +332,7 @@ Hello, |something|!
 接續替代文字，在嵌入圖片時有以下設定：
 
 - ``:height:`` 圖片高度，單位見下方
-- ``:weight:`` 圖片寬度，單位為
+- ``:width:`` 圖片寬度，單位為
 
   - ``em``, ``ex``, ``px``, ``in``, ``cm``, ``mm``, ``pt``, ``pc``
 
@@ -344,8 +344,12 @@ Hello, |something|!
 .. code-block:: rst
 
     .. |logo| image:: https://www.python.org/static/img/python-logo.png
+        :height: 200px
+        :width: 200px
 
 .. |logo| image:: https://www.python.org/static/img/python-logo.png
+    :height: 200px
+    :width: 200px
 
 -------------------
 
@@ -430,9 +434,9 @@ Hello, |something|!
 ------
 .. code-block:: rst
 
-    :Author: yves.chen@axv.bz
+    :Author: yveschen2718@gmail.com
 
-:Author: yves.chen@axv.bz
+:Author: yveschen2718@gmail.com
 
 -------------------
 
