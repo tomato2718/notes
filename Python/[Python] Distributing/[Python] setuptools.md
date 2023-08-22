@@ -1,4 +1,4 @@
-# [Python] Setuptools 與 setup
+# [Python] Setuptools
 ## 概要
 Setuptools 是一個用於分發 python 專案的工具，可以透過使用此工具將專案打包為單一 `.whl` 檔，攜帶至目標環境快速部署。
 
