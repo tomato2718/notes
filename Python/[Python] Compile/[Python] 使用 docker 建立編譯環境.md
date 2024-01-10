@@ -8,6 +8,7 @@
 ## 操作
 ### 安裝
 - 導入或建立 image
+
 ```sh
 # 由本地導入 image
 docker load docker_nuitka.tar
@@ -15,6 +16,7 @@ docker load docker_nuitka.tar
 docker build -t nuitka -f Dockerfile.bullseye.tar .
 ```
 - Dockerfile 參考
+
 ```Dockerfile
 FROM python:3.10.10-slim-bullseye
 

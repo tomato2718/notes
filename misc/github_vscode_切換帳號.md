@@ -61,9 +61,10 @@ Host github_tomato
 ### 測試是否成功
 - 於 terminal 測試是否成功
   - 注意這邊使用者要使用 `git`
+
 ```sh
 >>> ssh -T git@github_tomato
->> Hi tomato! You've successfully authenticated, but GitHub does not provide shell access.
+Hi tomato! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
 ## 專案部分
@@ -91,4 +92,5 @@ Host github_tomato
 ```sh
 >>> git remote add origin git@github_tomato:tomato/example.git
 ```
+
 - 完成後即可綁定專案與 repo

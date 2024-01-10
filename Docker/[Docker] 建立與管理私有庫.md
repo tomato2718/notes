@@ -7,6 +7,7 @@
 ## 說明
 ### 環境準備
 - 建立相關資料夾備用。
+
 ```sh
 >>> mkdir docker
 >>> cd docker
@@ -15,6 +16,7 @@
 
 - 建立設定檔。
     - 參考 [官方文件]
+
 ```sh
 >>> cat > ./config.yml <<EOF
 version: 0.1
@@ -42,6 +44,7 @@ EOF
 
 ### 啟動私有庫
 - 建立啟動腳本
+
 ```sh
 >>> cat > ./runRegistry.sh << EOF
 docker run \
@@ -56,16 +59,19 @@ EOF
 ```
 
 - 修改腳本執行權限
+
 ```sh
 >>> chmod 744 ./runRegistry.sh
 ```
 
 - 啟動 image
+
 ```sh
 >>> ./runRegistry.sh
 ```
 
 - 開啟防火牆設定
+
 ```sh
 >>> firewall-cmd --permanent --add-port 5000/tcp
 >>> firewall-cmd --reload
@@ -79,12 +85,14 @@ EOF
 > **注意:** 假設 registry IP 為 `10.10.1.100:5000`
 
 - 重新標記 image
+
 ```sh
 >>> docker tag MyImage:1.0.0 10.10.1.100:5000/MyImage:1.0.0
 ```
 
 - 將 image 推送至儲存庫
     - image 需要帶 registry IP
+
 ```sh
 >>> docker push 10.10.1.100:5000/MyImage:1.0.0
 ```
