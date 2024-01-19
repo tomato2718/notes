@@ -1,0 +1,2 @@
+# \[otelcol] Receivers
+
