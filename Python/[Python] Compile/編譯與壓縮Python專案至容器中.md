@@ -64,7 +64,7 @@ RUN cd app.dist \ # 移動到 app.dist 中方便操作
     # 壓縮 app 主體
     && upx --best app.bin
 
-
+# 3. 建立分發用 image
 # 因為已經把依賴庫都放到 app.dist 中了，所以可以直接從 scratch 建立分發用 image
 FROM scratch
 
