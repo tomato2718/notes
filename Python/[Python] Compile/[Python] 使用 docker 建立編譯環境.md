@@ -1,5 +1,7 @@
 # Docker python 編譯環境建立
+
 ## 概要
+
 - **注意**：根據 python 版本不同，安裝方法可能失效，目前僅測試 `python3.10.10`
 - 此篇文章使用 `python:3.10.10-slim-bullseye` 建立環境，若要在其他系統建立編譯環境，參考 `安裝指定版本 Python`
 - Dockerfile 說明：
@@ -7,6 +9,7 @@
 
 ## 操作
 ### 安裝
+
 - 導入或建立 image
 
 ```sh
@@ -15,6 +18,7 @@ docker load docker_nuitka.tar
 # 由 docker file 建立 image
 docker build -t nuitka -f Dockerfile.bullseye.tar .
 ```
+
 - Dockerfile 參考
 
 ```Dockerfile
@@ -32,10 +36,13 @@ CMD
 
 ## 使用
 ### 啟動
+
 - 本機指定到要編譯的專案目錄
+
 ```sh
 cd /path/to/my/project
 ```
+
 - 使用 docker 編譯檔案
     - `-i`：執行時 container 會接收鍵盤輸入
     - `-t`：執行時 container 將畫面轉出給使用中終端
@@ -43,6 +50,7 @@ cd /path/to/my/project
     - `-v`：掛載資料夾 (host:container)
     - `--entrypoint`：由其他入口進入
     - `nuitka`：image 名稱
+
 ```sh
 # 已將入口設定為 `python -m nuitka`
 # 查看說明
