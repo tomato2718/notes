@@ -73,6 +73,7 @@ COPY --from=compressor /usr/src/app.dist/ /
 
 # 大功告成！
 ENTRYPOINT [ "/app.bin" ]
+CMD []
 ```
 
 ## 收尾(?)
