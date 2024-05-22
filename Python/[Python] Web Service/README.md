@@ -1,2 +1,0 @@
-# \[Python] Web Service
-
