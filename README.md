@@ -10,4 +10,4 @@
 筆記同步更新於
 
 - [GitHub](https://github.com/tomato2718)
-- [GitBook](https://tomato2718.gitbook.io/tomato2718-de-ji-shu-sui-bi/)
+- [GitBook](https://tomato2718.gitbook.io/tomato2718-de-ji-shu-sui-bi/) (已停止同步)
