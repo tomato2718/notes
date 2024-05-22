@@ -5,6 +5,7 @@
 過去的服務大多為單一架構，透過語言內建的功能很容易就能追蹤執行流程與效能。但近年來隨著微服務的發展，一套系統被拆分為多個小型服務，讓 Monitoring (監控) 變得相對困難，因此有了 Observability (可觀察性) 的誕生。
 
 Observability (可觀察性) 跟 Monitoring (監控) 的差別在於：
+
 - **監控:** 事先對可能發生的情況建立機制，並在觸發門檻時發出告警給管理者。
 - **可觀察性:** 透過在各服務部署對應工具取得特定指標，讓管理者透過檢視指標來確定服務是否正常運作。並在異常時透過指標深入追蹤問題發生原因。
 
@@ -15,11 +16,13 @@ Observability (可觀察性) 跟 Monitoring (監控) 的差別在於：
 Observability 透過在服務間加入特定的工具來取得遙測 (Telemetry)，並寄送至後端的分析平台。讓管理者能在服務 **外部** 直接觀測服務 **內部** 的狀況。
 
 Observability 由三個核心要素組成：
+
 - **Metrics:** 程式或系統的 CPU, load, memory 等系統指標。
 - **Traces:** 程式間溝通花費的時間, 對象等資訊。
 - **logs:** 程式的運作日誌。
 
 而 Observability 又有幾個主要面向：
+
 - **Infrastructure:** 系統層級的資訊。
 - **Application Performance Monitoring (APM):** 服務層級的資訊。
 - **Real User Monitoring (RUM):** 使用者層級的資訊。
