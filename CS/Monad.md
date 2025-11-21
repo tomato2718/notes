@@ -107,16 +107,16 @@ class Result[T, E]:
 
     @staticmethod
     def err(e: E, /) -> "Result[T, E]":
-        return Result[T, E](error=(e,))
+        return Result(error=(e,))
 
     def map(self, fn: Callable[[T], U], /) -> "Result[U, E]":
-        return Result[U, E](value=tuple(fn(x) for x in self._value), error=self._error)
+        return Result(value=tuple(fn(x) for x in self._value), error=self._error)
 
     def flat_map(self, fn: Callable[[T], "Result[U, E]"]) -> "Result[U, E]":
         try:
             return next(fn(x) for x in self._value)
         except StopIteration:
-            return Result[U, E](error=self._error)
+            return Result(error=self._error)
 
     def is_ok(self) -> bool:
         return len(self._value) != 0
